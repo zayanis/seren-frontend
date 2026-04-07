@@ -1,0 +1,329 @@
+@use '@angular/material' as mat;
+
+// ── Palette Seren ──────────────────────────────────────────────────────
+$navy:   #1a2744;
+$gold:   #c9a84c;
+$cream:  #f5f4f0;
+$green:  #1D9E75;
+$red:    #E24B4A;
+$blue:   #378ADD;
+
+// ── Material custom theme ─────────────────────────────────────────────────
+$primary-palette: mat.define-palette(mat.$indigo-palette, 900);
+$accent-palette:  mat.define-palette(mat.$amber-palette, 600);
+$warn-palette:    mat.define-palette(mat.$red-palette);
+
+$theme: mat.define-light-theme((
+  color: (
+    primary: $primary-palette,
+    accent:  $accent-palette,
+    warn:    $warn-palette
+  ),
+  typography: mat.define-typography-config(
+    $font-family: 'Inter, sans-serif'
+  ),
+  density: 0
+));
+
+@include mat.all-component-themes($theme);
+
+// ── Reset & base ──────────────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: $cream;
+  -webkit-font-smoothing: antialiased;
+}
+
+// ── CSS Variables ─────────────────────────────────────────────────────────
+:root {
+  --navy:        #{$navy};
+  --gold:        #{$gold};
+  --cream:       #{$cream};
+  --green:       #{$green};
+  --red:         #{$red};
+  --blue:        #{$blue};
+  --border:      rgba(0, 0, 0, 0.1);
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md:   0 4px 12px rgba(0,0,0,0.1);
+}
+
+// ── Utilitaires ───────────────────────────────────────────────────────────
+.text-muted     { color: #888; }
+.text-primary   { color: var(--navy); }
+.text-gold      { color: var(--gold); }
+.text-green     { color: var(--green); }
+.text-red       { color: var(--red); }
+.text-blue      { color: var(--blue); }
+.font-medium    { font-weight: 500; }
+.font-semibold  { font-weight: 600; }
+
+.card {
+  background: #fff;
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.pill {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-weight: 500;
+
+  &--new    { background: #E6F1FB; color: #0C447C; }
+  &--ok     { background: #E1F5EE; color: #085041; }
+  &--warn   { background: #FAEEDA; color: #633806; }
+  &--gray   { background: #F1EFE8; color: #5F5E5A; }
+  &--red    { background: #FCEBEB; color: #A32D2D; }
+  &--gold   { background: #FAEEDA; color: #854F0B; }
+}
+
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: #E1F5EE;
+  color: #085041;
+  font-weight: 500;
+}
+
+// ── Topbar ────────────────────────────────────────────────────────────────
+.topbar {
+  background: var(--navy);
+  height: 52px;
+  display: flex;
+  align-items: stretch;
+  padding: 0 20px;
+  flex-shrink: 0;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-size: 15px;
+    margin-right: 28px;
+    cursor: pointer;
+    text-decoration: none;
+
+    &-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    &-role {
+      font-size: 10px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-left: 4px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-self: stretch;
+
+    a, button {
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all 0.15s;
+      white-space: nowrap;
+
+      &:hover { color: rgba(255,255,255,0.8); }
+      &.active {
+        color: var(--gold);
+        border-bottom-color: var(--gold);
+      }
+    }
+  }
+
+  &__right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  &__switch {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 0.5px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    background: transparent;
+    letter-spacing: 0.05em;
+    transition: all 0.15s;
+
+    &:hover {
+      color: rgba(255,255,255,0.7);
+      border-color: rgba(255,255,255,0.3);
+    }
+  }
+}
+
+// ── Bar graph ─────────────────────────────────────────────────────────────
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__label { font-size: 10px; color: #888; width: 64px; flex-shrink: 0; }
+  &__track {
+    flex: 1;
+    height: 3px;
+    background: #f0ece4;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  &__fill {
+    height: 100%;
+    border-radius: 2px;
+    &--gold  { background: var(--gold); }
+    &--green { background: var(--green); }
+    &--blue  { background: var(--blue); }
+  }
+  &__value { font-size: 10px; color: #555; min-width: 65px; text-align: right; }
+}
+
+// ── Buttons ───────────────────────────────────────────────────────────────
+.btn {
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s;
+
+  &:hover { opacity: 0.88; }
+  &:disabled { opacity: 0.4; cursor: default; }
+
+  &--primary   { background: var(--navy); color: #fff; }
+  &--gold      { background: var(--gold); color: var(--navy); }
+  &--success   { background: var(--green); color: #fff; }
+  &--danger    { border: 0.5px solid #F7C1C1; background: transparent; color: #A32D2D; }
+  &--ghost     { border: 0.5px solid rgba(0,0,0,0.12); background: transparent; color: #555; }
+  &--full      { width: 100%; }
+  &--docusign  { background: #FFB703; color: #1a1a1a; }
+}
+
+// ── Pipeline steps ────────────────────────────────────────────────────────
+.pipeline {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin-bottom: 18px;
+
+  &__step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 17px;
+      left: 57%;
+      right: -43%;
+      height: 1px;
+      background: rgba(0,0,0,0.08);
+    }
+
+    &--done:not(:last-child)::after { background: var(--green); }
+  }
+
+  &__circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+    z-index: 1;
+    border: 1.5px solid rgba(0,0,0,0.08);
+    background: #f5f4f0;
+    font-size: 12px;
+    color: #aaa;
+
+    &--done    { background: #E1F5EE; border-color: var(--green); }
+    &--current { background: var(--navy); border-color: var(--navy); color: #fff; }
+  }
+
+  &__label {
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    &--muted { color: #aaa; font-weight: 400; }
+    &--current { color: var(--navy); }
+  }
+
+  &__sub {
+    font-size: 10px;
+    color: #aaa;
+    &--ok      { color: #0f6e56; }
+    &--current { color: var(--blue); }
+  }
+}
+
+// ── Scrollbar ─────────────────────────────────────────────────────────────
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+
+// ── Material overrides ────────────────────────────────────────────────────
+.mat-mdc-form-field {
+  width: 100%;
+  font-size: 13px;
+}
+
+.mat-mdc-snack-bar-container {
+  &.success-snack { --mdc-snackbar-container-color: #{$green}; }
+  &.error-snack   { --mdc-snackbar-container-color: #{$red}; }
+}
