@@ -12,7 +12,7 @@ import { BienResponse, BailResponse } from '@core/models';
       <div class="page-header">
         <div class="page-title">Suivi des locations</div>
         <div class="text-muted" style="font-size:11px;">
-          {{ bails().length }} bail(s) actif(s) · {{ biens().filter(b => b.statut === 'VACANT').length }} vacant(s)
+          {{ bails().length }} bail(s) actif(s) · {{ vacantBiensCount() }} vacant(s)
         </div>
       </div>
 
@@ -26,15 +26,15 @@ import { BienResponse, BailResponse } from '@core/models';
         <div class="metric">
           <div class="metric__num">{{ bails().length }}</div>
           <div class="metric__lbl">Biens loués</div>
-          <div class="metric__trend text-muted">{{ biens().filter(b => b.statut === 'VACANT').length }} vacant(s)</div>
+          <div class="metric__trend text-muted">{{ vacantBiensCount() }} vacant(s)</div>
         </div>
-        <div class="metric" [style.background]="echeances().length > 0 ? '#FAEEDA' : ''">
-          <div class="metric__num" [style.color]="echeances().length > 0 ? '#854F0B' : ''">
+        <div class="metric" [style.background]="hasEcheances() ? '#FAEEDA' : ''">
+          <div class="metric__num" [style.color]="hasEcheances() ? '#854F0B' : ''">
             {{ echeances().length }}
           </div>
-          <div class="metric__lbl" [style.color]="echeances().length > 0 ? '#854F0B' : ''">Échéances</div>
-          <div class="metric__trend" [class.text-gold]="echeances().length > 0">
-            {{ echeances().length > 0 ? 'Action requise' : 'RAS' }}
+          <div class="metric__lbl" [style.color]="hasEcheances() ? '#854F0B' : ''">Échéances</div>
+          <div class="metric__trend" [class.text-gold]="hasEcheances()">
+            {{ hasEcheances() ? 'Action requise' : 'RAS' }}
           </div>
         </div>
         <div class="metric">
@@ -89,7 +89,7 @@ import { BienResponse, BailResponse } from '@core/models';
                 </div>
               }
             }
-            @if (biens().filter(b => b.statut === 'VACANT').length === 0) {
+            @if (vacantBiensCount() === 0) {
               <div class="empty-state" style="padding:16px;">Tous vos biens sont loués.</div>
             }
           </div>
@@ -111,12 +111,14 @@ import { BienResponse, BailResponse } from '@core/models';
     .card__head { padding: 13px 16px; border-bottom: 0.5px solid rgba(0,0,0,0.07); }
     .card__title { font-size: 13px; font-weight: 500; }
     .card__body { padding: 14px 16px; }
-    .loc-row { display: flex; align-items: flex-start; gap: 12px; padding: 11px 0; border-bottom: 0.5px solid rgba(0,0,0,0.06); &:last-child { border-bottom: none; padding-bottom: 0; } }
+    .loc-row { display: flex; align-items: flex-start; gap: 12px; padding: 11px 0; border-bottom: 0.5px solid rgba(0,0,0,0.06); }
+    .loc-row:last-child { border-bottom: none; padding-bottom: 0; }
     .loc-info { flex: 1; }
     .loc-addr { font-size: 12px; font-weight: 500; }
     .loc-right { text-align: right; }
     .loc-price { font-size: 13px; font-weight: 500; color: #1a2744; }
-    .bien-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid rgba(0,0,0,0.06); &:last-child { border-bottom: none; } }
+    .bien-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid rgba(0,0,0,0.06); }
+    .bien-row:last-child { border-bottom: none; }
     .bien-row__info { flex: 1; }
     .bien-row__name { font-size: 12px; font-weight: 500; }
     .bien-row__right { text-align: right; display: flex; flex-direction: column; gap: 3px; align-items: flex-end; }
@@ -141,6 +143,12 @@ export class DashboardComponent implements OnInit {
       return diff < 90 * 86_400_000;
     })
   );
+
+  vacantBiensCount = computed(() =>
+    this.biens().filter(b => b.statut === 'VACANT').length
+  );
+
+  hasEcheances = computed(() => this.echeances().length > 0);
 
   constructor(private api: ApiService) {}
 

@@ -292,13 +292,13 @@ import { BienResponse, CandidatureResponse } from '@core/models';
     }
     .code-block {
       background: #f5f4f0; border-radius: 6px; padding: 8px; margin-top: 8px;
-      &__val {
-        font-family: monospace; font-size: 14px; font-weight: 500;
-        color: #1a2744; letter-spacing: 0.14em; margin-bottom: 3px;
-      }
-      &__exp { font-size: 9px; color: #aaa; }
-      &__regen { color: #1D9E75; cursor: pointer; }
     }
+    .code-block__val {
+      font-family: monospace; font-size: 14px; font-weight: 500;
+      color: #1a2744; letter-spacing: 0.14em; margin-bottom: 3px;
+    }
+    .code-block__exp { font-size: 9px; color: #aaa; }
+    .code-block__regen { color: #1D9E75; cursor: pointer; }
     .main-col {
       overflow-y: auto; padding: 18px;
       display: flex; flex-direction: column; gap: 12px;
@@ -310,25 +310,25 @@ import { BienResponse, CandidatureResponse } from '@core/models';
     }
     .stat-box {
       background: #f5f4f0; border-radius: 8px; padding: 10px 12px;
-      &__num { font-size: 20px; font-weight: 500; color: #1a2744; }
-      &__lbl { font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 0.06em; }
     }
+    .stat-box__num { font-size: 20px; font-weight: 500; color: #1a2744; }
+    .stat-box__lbl { font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 0.06em; }
     .filters { display: flex; gap: 6px; flex-wrap: wrap; }
     .filter-btn {
       font-size: 11px; padding: 4px 11px;
       border-radius: 20px; border: 0.5px solid rgba(0,0,0,0.12);
       background: #fff; cursor: pointer; color: #555;
-      &.on { background: #1a2744; color: #fff; border-color: #1a2744; }
     }
+    .filter-btn.on { background: #1a2744; color: #fff; border-color: #1a2744; }
     .cand-card {
       background: #fff; border: 0.5px solid rgba(0,0,0,0.1);
       border-radius: 10px; overflow: hidden; cursor: pointer;
       transition: border-color 0.15s;
-      &:hover { border-color: #c9a84c; }
-      &.selected { border: 1.5px solid #c9a84c; }
-      &.anomaly { border-color: #F09595; }
-      &.anomaly.selected { border: 1.5px solid #E24B4A; }
     }
+    .cand-card:hover { border-color: #c9a84c; }
+    .cand-card.selected { border: 1.5px solid #c9a84c; }
+    .cand-card.anomaly { border-color: #F09595; }
+    .cand-card.anomaly.selected { border: 1.5px solid #E24B4A; }
     .cand-card__top {
       padding: 12px 14px; display: flex; align-items: center; gap: 10px;
       border-bottom: 0.5px solid rgba(0,0,0,0.06);
@@ -350,13 +350,13 @@ import { BienResponse, CandidatureResponse } from '@core/models';
     .anomaly-bar {
       background: #FCEBEB; border-top: 0.5px solid #F7C1C1;
       padding: 8px 14px; display: flex; align-items: center; gap: 8px;
-      &__icon {
-        width: 16px; height: 16px; border-radius: 50%; background: #E24B4A;
-        color: #fff; font-size: 10px; font-weight: bold;
-        display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-      }
-      &__text { font-size: 10px; color: #791F1F; flex: 1; }
     }
+    .anomaly-bar__icon {
+      width: 16px; height: 16px; border-radius: 50%; background: #E24B4A;
+      color: #fff; font-size: 10px; font-weight: bold;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .anomaly-bar__text { font-size: 10px; color: #791F1F; flex: 1; }
     .cand-card__foot {
       padding: 8px 14px; display: flex; gap: 6px;
       border-top: 0.5px solid rgba(0,0,0,0.06);
@@ -381,32 +381,32 @@ import { BienResponse, CandidatureResponse } from '@core/models';
     }
     .dossier-cover {
       background: #1a2744; margin: 14px; border-radius: 8px; padding: 14px;
-      &__logo { display: flex; align-items: center; gap: 5px; margin-bottom: 10px; font-size: 10px; color: rgba(255,255,255,0.5); }
-      &__dot { width: 5px; height: 5px; border-radius: 50%; background: #c9a84c; }
-      &__label { font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); margin-bottom: 3px; }
-      &__name { font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 8px; }
-      &__score-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-      &__score { font-size: 26px; font-weight: 500; color: #c9a84c; }
-      &__score-lbl { font-size: 8px; color: rgba(255,255,255,0.35); text-align: right; }
-      &__line { height: 0.5px; background: rgba(255,255,255,0.1); margin-bottom: 8px; }
-      &__badge {
-        background: rgba(29,158,117,0.2); border: 0.5px solid #1D9E75;
-        border-radius: 4px; padding: 4px 8px;
-        display: flex; align-items: center; gap: 5px;
-        font-size: 8px; color: #5DCAA5; font-weight: 500;
-        &.anomaly { background: rgba(226,75,74,0.2); border-color: #E24B4A; color: #F09595; }
-      }
-      &__badge-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
     }
+    .dossier-cover__logo { display: flex; align-items: center; gap: 5px; margin-bottom: 10px; font-size: 10px; color: rgba(255,255,255,0.5); }
+    .dossier-cover__dot { width: 5px; height: 5px; border-radius: 50%; background: #c9a84c; }
+    .dossier-cover__label { font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); margin-bottom: 3px; }
+    .dossier-cover__name { font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 8px; }
+    .dossier-cover__score-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .dossier-cover__score { font-size: 26px; font-weight: 500; color: #c9a84c; }
+    .dossier-cover__score-lbl { font-size: 8px; color: rgba(255,255,255,0.35); text-align: right; }
+    .dossier-cover__line { height: 0.5px; background: rgba(255,255,255,0.1); margin-bottom: 8px; }
+    .dossier-cover__badge {
+      background: rgba(29,158,117,0.2); border: 0.5px solid #1D9E75;
+      border-radius: 4px; padding: 4px 8px;
+      display: flex; align-items: center; gap: 5px;
+      font-size: 8px; color: #5DCAA5; font-weight: 500;
+    }
+    .dossier-cover__badge.anomaly { background: rgba(226,75,74,0.2); border-color: #E24B4A; color: #F09595; }
+    .dossier-cover__badge-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
     .pr-section {
       padding: 12px 16px; border-top: 0.5px solid rgba(0,0,0,0.08);
-      &__title { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #aaa; margin-bottom: 8px; }
     }
+    .pr-section__title { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #aaa; margin-bottom: 8px; }
     .anomaly-detail {
       background: #FCEBEB; border: 0.5px solid #F7C1C1; border-radius: 8px; padding: 10px;
-      &__label { font-size: 9px; font-weight: 500; color: #A32D2D; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
-      &__value { font-size: 11px; color: #791F1F; line-height: 1.4; }
     }
+    .anomaly-detail__label { font-size: 9px; font-weight: 500; color: #A32D2D; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+    .anomaly-detail__value { font-size: 11px; color: #791F1F; line-height: 1.4; }
     .panel-actions {
       display: flex; flex-direction: column; gap: 6px;
       padding: 12px 16px; border-top: 0.5px solid rgba(0,0,0,0.08);

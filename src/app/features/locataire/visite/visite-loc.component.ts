@@ -131,8 +131,12 @@ import { VisiteResponse } from '@core/models';
     .prep-item__title { font-size: 12px; font-weight: 500; margin-bottom: 2px; }
     .prep-item__desc { font-size: 10px; line-height: 1.4; }
     .step-list { display: flex; flex-direction: column; gap: 8px; }
-    .step-item { display: flex; align-items: center; gap: 9px; padding: 9px 11px; background: #f5f4f0; border-radius: 8px; &--current { background: #fffdf7; border: 0.5px solid #c9a84c; } }
-    .step-num { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; flex-shrink: 0; &--done { background: #E1F5EE; color: #085041; } &--current { background: #1a2744; color: #fff; } &--wait { background: #fff; border: 0.5px solid rgba(0,0,0,0.12); color: #aaa; } }
+    .step-item { display: flex; align-items: center; gap: 9px; padding: 9px 11px; background: #f5f4f0; border-radius: 8px; }
+    .step-item--current { background: #fffdf7; border: 0.5px solid #c9a84c; }
+    .step-num { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; flex-shrink: 0; }
+    .step-num--done { background: #E1F5EE; color: #085041; }
+    .step-num--current { background: #1a2744; color: #fff; }
+    .step-num--wait { background: #fff; border: 0.5px solid rgba(0,0,0,0.12); color: #aaa; }
     .step-text { font-size: 11px; color: #555; }
     .empty-state { text-align: center; color: #aaa; padding: 60px 20px; }
   `]

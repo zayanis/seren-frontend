@@ -72,28 +72,28 @@ import { AuthService } from '@core/services/auth.service';
       cursor: pointer;
       transition: all 0.2s;
       text-align: center;
-      &:hover {
-        background: rgba(255,255,255,0.11);
-        border-color: #c9a84c;
-        transform: translateY(-2px);
-      }
-      h2 { font-size: 15px; color: #fff; margin: 0 0 8px; font-weight: 500; }
-      p  { font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.6; margin: 0 0 18px; }
     }
+    .landing__card:hover {
+      background: rgba(255,255,255,0.11);
+      border-color: #c9a84c;
+      transform: translateY(-2px);
+    }
+    .landing__card h2 { font-size: 15px; color: #fff; margin: 0 0 8px; font-weight: 500; }
+    .landing__card p { font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.6; margin: 0 0 18px; }
     .landing__icon {
       width: 52px; height: 52px; border-radius: 14px;
       margin: 0 auto 16px;
       display: flex; align-items: center; justify-content: center;
-      &--gold { background: rgba(201,168,76,0.2); }
-      &--blue { background: rgba(55,138,221,0.2); }
     }
+    .landing__icon--gold { background: rgba(201,168,76,0.2); }
+    .landing__icon--blue { background: rgba(55,138,221,0.2); }
     .landing__btn {
       width: 100%; padding: 10px;
       border-radius: 8px; border: none;
       font-size: 12px; font-weight: 500; cursor: pointer;
-      &--gold { background: #c9a84c; color: #1a2744; }
-      &--blue { background: #378ADD; color: #fff; }
     }
+    .landing__btn--gold { background: #c9a84c; color: #1a2744; }
+    .landing__btn--blue { background: #378ADD; color: #fff; }
   `]
 })
 export class LandingComponent {

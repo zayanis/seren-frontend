@@ -102,13 +102,13 @@ import { Role } from '@core/models';
       display: flex; align-items: center; gap: 8px;
       margin-bottom: 28px; cursor: pointer;
       font-size: 18px; font-weight: 500; color: #1a2744;
-      &__dot { width: 8px; height: 8px; border-radius: 50%; background: #c9a84c; }
     }
+    .auth-logo__dot { width: 8px; height: 8px; border-radius: 50%; background: #c9a84c; }
     .auth-title { font-size: 22px; font-weight: 500; margin: 0 0 6px; }
     .auth-sub {
       font-size: 13px; color: #888; margin: 0 0 20px;
-      a { color: #1a2744; font-weight: 500; text-decoration: none; }
     }
+    .auth-sub a { color: #1a2744; font-weight: 500; text-decoration: none; }
     .role-toggle {
       display: flex; gap: 8px; margin-bottom: 20px;
     }
@@ -117,9 +117,9 @@ import { Role } from '@core/models';
       border: 0.5px solid rgba(0,0,0,0.15);
       border-radius: 8px; background: transparent;
       font-size: 12px; cursor: pointer; transition: all 0.15s;
-      &.active {
-        background: #1a2744; color: #fff; border-color: #1a2744;
-      }
+    }
+    .role-btn.active {
+      background: #1a2744; color: #fff; border-color: #1a2744;
     }
     .auth-form { display: flex; flex-direction: column; gap: 4px; }
     .name-row { display: flex; gap: 10px; }

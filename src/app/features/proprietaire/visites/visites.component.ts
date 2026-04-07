@@ -71,7 +71,7 @@ import { CandidatureResponse, VisiteResponse } from '@core/models';
               @for (v of visites(); track v.id) {
                 <div class="visit-card">
                   <div class="visit-card__date">
-                    {{ v.dateVisite | date:'EEEE d MMMM y · HH\'h\'mm':'':'fr' }}
+                    {{ v.dateVisite | date:"EEEE d MMMM y · HH'h'mm":'':'fr' }}
                   </div>
                   <div class="visit-card__meta text-muted">
                     {{ v.locatairePrenom }} {{ v.locataireNom }} · {{ v.bienAdresse }}
@@ -221,13 +221,13 @@ export class VisitesComponent implements OnInit {
   visiteStatutForCand(candId: number): string {
     const v = this.visites().find(v => v.candidatureId === candId);
     if (!v) return 'pill--gray';
-    return { PROPOSEE: 'pill--warn', CONFIRMEE: 'pill--ok', ANNULEE: 'pill--red' }[v.statut] ?? 'pill--gray';
+    return { PROPOSEE: 'pill--warn', CONFIRMEE: 'pill--ok', ANNULEE: 'pill--red', EFFECTUEE: 'pill--gray' }[v.statut] ?? 'pill--gray';
   }
 
   visiteLabel(candId: number): string {
     const v = this.visites().find(v => v.candidatureId === candId);
     if (!v) return 'Sans visite';
-    return { PROPOSEE: 'En attente', CONFIRMEE: 'Confirmée', ANNULEE: 'Annulée' }[v.statut] ?? v.statut;
+    return { PROPOSEE: 'En attente', CONFIRMEE: 'Confirmée', ANNULEE: 'Annulée', EFFECTUEE: 'pill--gray' }[v.statut] ?? v.statut;
   }
 
   visiteStatutPill(s: string): string {

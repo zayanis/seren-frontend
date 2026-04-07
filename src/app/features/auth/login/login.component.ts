@@ -86,16 +86,16 @@ import { AuthService } from '@core/services/auth.service';
       font-size: 18px;
       font-weight: 500;
       color: #1a2744;
-      &__dot {
-        width: 8px; height: 8px;
-        border-radius: 50%; background: #c9a84c;
-      }
+    }
+    .auth-logo__dot {
+      width: 8px; height: 8px;
+      border-radius: 50%; background: #c9a84c;
     }
     .auth-title { font-size: 22px; font-weight: 500; margin: 0 0 6px; }
     .auth-sub {
       font-size: 13px; color: #888; margin: 0 0 24px;
-      a { color: #1a2744; font-weight: 500; text-decoration: none; }
     }
+    .auth-sub a { color: #1a2744; font-weight: 500; text-decoration: none; }
     .auth-form {
       display: flex; flex-direction: column; gap: 4px;
     }

@@ -122,8 +122,12 @@ import { BailResponse } from '@core/models';
     .card__title { font-size: 13px; font-weight: 500; }
     .card__body { padding: 14px 16px; }
     .step-list { display: flex; flex-direction: column; gap: 7px; }
-    .step-item { display: flex; align-items: center; gap: 9px; padding: 9px 11px; background: #f5f4f0; border-radius: 8px; &--current { background: #fffdf7; border: 0.5px solid #c9a84c; } }
-    .step-num { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; flex-shrink: 0; &--done { background: #E1F5EE; color: #085041; } &--current { background: #1a2744; color: #fff; } &--wait { background: #fff; border: 0.5px solid rgba(0,0,0,0.12); color: #aaa; } }
+    .step-item { display: flex; align-items: center; gap: 9px; padding: 9px 11px; background: #f5f4f0; border-radius: 8px; }
+    .step-item--current { background: #fffdf7; border: 0.5px solid #c9a84c; }
+    .step-num { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; flex-shrink: 0; }
+    .step-num--done { background: #E1F5EE; color: #085041; }
+    .step-num--current { background: #1a2744; color: #fff; }
+    .step-num--wait { background: #fff; border: 0.5px solid rgba(0,0,0,0.12); color: #aaa; }
     .step-text { font-size: 11px; color: #555; }
     .empty-state { text-align: center; color: #aaa; padding: 60px 20px; }
   `]
@@ -249,7 +253,8 @@ export class SignatureLocComponent implements OnInit {
     .ba-stat__lbl { font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
     .ba-sep { height: 0.5px; background: rgba(0,0,0,0.07); margin-bottom: 14px; }
     .doc-list { display: flex; flex-direction: column; gap: 8px; }
-    .doc-item { display: flex; align-items: center; gap: 12px; padding: 11px 13px; background: #f5f4f0; border-radius: 8px; &--green { background: #E1F5EE; } }
+    .doc-item { display: flex; align-items: center; gap: 12px; padding: 11px 13px; background: #f5f4f0; border-radius: 8px; }
+    .doc-item--green { background: #E1F5EE; }
     .doc-item__name { font-size: 12px; font-weight: 500; flex: 1; }
     .doc-item__meta { font-size: 10px; color: #aaa; margin-top: 1px; flex: 1; }
     .two-col { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); gap: 16px; }
